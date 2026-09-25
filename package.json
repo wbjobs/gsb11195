@@ -1,0 +1,10 @@
+{
+  "name": "shared-shopping-list",
+  "version": "1.0.0",
+  "private": true,
+  "description": "多标签页共享购物清单：BroadcastChannel + IndexedDB + CRDT (LWW-Register)",
+  "scripts": {
+    "test": "node --test test/crdt.test.js",
+    "start": "python3 -m http.server 8000"
+  }
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>共享购物清单</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header>
+      <h1>共享购物清单</h1>
+      <p class="hint">多开几个标签页试试：所有标签页实时保持一致。</p>
+    </header>
+
+    <form id="add-form" class="add-form" autocomplete="off">
+      <input id="name-input" type="text" placeholder="物品名称，如：牛奶" required maxlength="100">
+      <input id="qty-input" type="number" min="1" step="1" value="1" title="数量">
+      <button type="submit">添加</button>
+    </form>
+
+    <div class="toolbar">
+      <label>
+        排序
+        <select id="sort-select">
+          <option value="created-asc">添加时间（先→后）</option>
+          <option value="created-desc">添加时间（后→先）</option>
+          <option value="name">名称</option>
+          <option value="todo-first">未完成优先</option>
+        </select>
+      </label>
+      <span class="count-wrap">共 <span id="count">0</span> 项</span>
+      <button id="online-toggle" type="button">模拟离线</button>
+    </div>
+
+    <ul id="list" class="list"></ul>
+    <p id="empty" class="empty" hidden>清单是空的，添加第一项吧。</p>
+
+    <footer>
+      <span id="status">初始化中…</span>
+    </footer>
+  </main>
+
+  <script src="js/crdt.js"></script>
+  <script src="js/db.js"></script>
+  <script src="js/sync.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
