@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>共享购物清单</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main class="app">
+  <header class="header">
+    <h1>🛒 共享购物清单</h1>
+    <div class="status" id="status" title="当前标签页与其他标签页的同步状态">
+      <span class="status-dot" id="statusDot"></span>
+      <span id="statusText">连接中…</span>
+    </div>
+  </header>
+
+  <form class="add-form" id="addForm" autocomplete="off">
+    <input type="text" id="nameInput" class="name-input" placeholder="物品名称，回车添加" maxlength="60" aria-label="物品名称">
+    <input type="number" id="qtyInput" class="qty-input" value="1" min="1" max="9999" step="1" aria-label="数量">
+    <button type="submit" class="btn-primary">添加</button>
+  </form>
+
+  <div class="toolbar">
+    <div class="sort-group" role="group" aria-label="排序方式">
+      <button type="button" class="sort-btn active" data-sort="created">按添加顺序</button>
+      <button type="button" class="sort-btn" data-sort="name">按名称</button>
+      <button type="button" class="sort-btn" data-sort="active">未完成优先</button>
+    </div>
+    <span class="counts" id="counts"></span>
+  </div>
+
+  <ul class="list" id="list" aria-live="polite"></ul>
+  <div class="empty" id="empty">清单是空的，添加第一件物品吧</div>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
